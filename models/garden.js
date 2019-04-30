@@ -33,7 +33,7 @@ module.exports = sequelize.define('garden', {
 			},
 			len: {
 				args: [5, 300],
-				msg: 'title must be between 5 and 300 characters'
+				msg: 'address must be between 5 and 300 characters'
 			}
 			
 		}

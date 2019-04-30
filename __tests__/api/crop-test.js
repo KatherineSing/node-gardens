@@ -48,3 +48,21 @@ it('should create a crop', () => {
 		.expect('json', 'description', 'honeycrisp')
 		.expect('jsonTypes', 'id', Joi.number().required());
 });
+
+it('should return 404 when deleting a crop that does not exist', () => {
+	return frisby
+		.del('http://localhost:8000/api/crops/-1')
+		.expect('status', 404);
+});
+
+it('should return 204 when deleting a crop that exists', () => {
+	return frisby
+		.del('http://localhost:8000/api/crops/6')
+		.expect('status', 204);
+});
+
+
+
+
+
+

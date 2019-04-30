@@ -41,3 +41,22 @@ it('should create a garden', () => {
 		.expect('json', 'address', '123 Street Rd')
 		.expect('jsonTypes', 'id', Joi.number().required());
 });
+
+
+it('should return 404 when deleting a garden that does not exist', () => {
+	return frisby
+		.del('http://localhost:8000/api/gardens/-1')
+		.expect('status', 404);
+});
+
+
+
+
+
+
+
+
+
+
+
+
