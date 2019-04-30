@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/KatherineSing/node-gardens.svg?branch=master)](https://travis-ci.org/KatherineSing/node-gardens)
