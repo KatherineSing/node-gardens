@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express'); //connects to express routing lib
 const bodyParser = require('body-parser');
 const Garden = require('./models/garden');
