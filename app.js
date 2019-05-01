@@ -104,29 +104,31 @@ app.patch('/api/crops/:id', function(request, response) {
 			if(!crop) {
 				response.status(404).send();
 			}
-			Crop.update({
-				garden_id: request.body.garden_id,
-				title: request.body.title,
-				status: request.body.status,
-				date: request.body.date,
-				description: request.body.description
-			}, {
-				where: {
-					id: id,
-				}
-			}).then(() => {
-				response.send(request.body);
-				response.status(200).send();
-			},(validation) => {
-				response.status(422).json({
-					errors: validation.errors.map((error)=> {
-						return {
-							attribute: error.path,
-							message: error.message
-						}
-					})
-				});
-			})
+			else { 
+				Crop.update({
+					garden_id: request.body.garden_id,
+					title: request.body.title,
+					status: request.body.status,
+					date: request.body.date,
+					description: request.body.description
+				}, {
+					where: {
+						id: id,
+					}
+				}).then(() => {
+					response.send(request.body);
+					response.status(200).send();
+				},(validation) => {
+					response.status(422).json({
+						errors: validation.errors.map((error)=> {
+							return {
+								attribute: error.path,
+								message: error.message
+							}
+						})
+					});
+				})
+			}
 		})
 });
 
